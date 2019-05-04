@@ -1,10 +1,10 @@
 Package: StrangSciComp
 Type: Package
-Title: 
+Title: Strang - Scientific Computing
 Version: 0.0.1
 Author: Christian Bitter
 Maintainer: Who to complain to <yourfault@somewhere.net>
-Description: More about what it does (maybe more than one line)
+Description: Implementation on some of things shown in Strang's Scientific Computing.
 License: What license is it under?
 LazyData: TRUE
 DependsOn: Matrix
