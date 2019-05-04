@@ -14,10 +14,8 @@ toeplitz <- function(n, use_sparse = F) {
   return(m);
 }
 
-#'@export
 matrix_K <- function(n, use_sparse) toeplitz(n, use_sparse);
 
-#'@export
 matrix_C <- function(n, use_sparse) {
   m_C <- toeplitz(n, use_sparse);
   m_C[1, n] <- -1;
@@ -25,7 +23,6 @@ matrix_C <- function(n, use_sparse) {
   return(m_C);
 }
 
-#'@export
 matrix_T <- function(n, use_sparse) {
   m_T <- toeplitz(n);
   m_T[1, 1] <- 1;
@@ -33,7 +30,9 @@ matrix_T <- function(n, use_sparse) {
   return(m_T);
 }
 
-#'@export
+#'@name matrix_B
+#'@title Create the Bottom matrix
+#'@author christian bitter
 matrix_B <- function(n, use_sparse) {
   m_B <- toeplitz(n, use_sparse);
   m_B[1, 1] <- 1;
@@ -41,7 +40,18 @@ matrix_B <- function(n, use_sparse) {
   return(m_B);
 }
 
-
+#'@name KTCB
+#'@title Create the special matrices K, T, B, and C
+#'@author christian bitter
+#'@description create the four square matrices K, T, B, C of dimensionality n
+#'@param n dimensionality of the square matrices
+#'@param use_sparse should sparse matrices be created
+#'@return a list with the following fields \itemize{
+#'\item K - the K matrix
+#'\item T - the T matrix
+#'\item C - the C matrix
+#'\item B - the B matrix
+#'} 
 #'@export
 KTCB <- function(n, use_sparse) {
   if (n < 1) stop("n < 1");
